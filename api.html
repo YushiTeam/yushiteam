@@ -7,27 +7,25 @@
 </head>
 <body>
     <script>
-        async function handleRequest(command) {
-            const [gameUser ID, baseAmount] = command.split(',');
-            if (gameUser ID && !isNaN(baseAmount) && parseInt(baseAmount) >= 50) {
+        function handleRequest() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const command = urlParams.get('command');
+
+            if (command === 'test') {
                 const response = {
                     test: true
                 };
-                return JSON.stringify(response);
+                document.body.innerText = JSON.stringify(response);
+            } else {
+                const errorResponse = {
+                    error: 'Неизвестная команда'
+                };
+                document.body.innerText = JSON.stringify(errorResponse);
             }
-            return JSON.stringify({ test: false });
         }
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const command = urlParams.get('command');
-
-        if (command) {
-            handleRequest(command).then(response => {
-                document.body.innerText = response;
-            });
-        } else {
-            document.body.innerText = JSON.stringify({ error: 'Команда не указана' });
-        }
+        // Вызываем функцию обработки запроса
+        handleRequest();
     </script>
 </body>
 </html>
