@@ -6,14 +6,16 @@
     <title>Orion API</title>
 </head>
 <body>
-    <h1>Orion API</h1>
     <script>
         async function handleRequest(command) {
-            const [gameUser ID, baseAmount] = command.split(' ');
+            const [gameUser ID, baseAmount] = command.split(',');
             if (gameUser ID && !isNaN(baseAmount) && parseInt(baseAmount) >= 50) {
-                return 'true';
+                const response = {
+                    test: true
+                };
+                return JSON.stringify(response);
             }
-            return 'false';
+            return JSON.stringify({ test: false });
         }
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -24,7 +26,7 @@
                 document.body.innerText = response;
             });
         } else {
-            document.body.innerText = 'Команда не указана';
+            document.body.innerText = JSON.stringify({ error: 'Команда не указана' });
         }
     </script>
 </body>
