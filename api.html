@@ -2,29 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:title" content="Orion - API">
+    <meta property="og:site_name" content="yushiteam.github.io">
+    <meta property="og:url" content="https://yushiteam.github.io/">
+    <meta property="og:description" content="Orion API">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orion API</title>
+    <meta name="keywords" content="yushi4ka юшико юша вьюшка Yushi4ka Юшико Юша Вьюшка Юшико Киров Yushiko Kirov yushiko kirov yushi4ka kirov Юшичка Киров Orion Орион OrionBot ОрионБот Bot Бот OrionOnline ОрионОнлайн">
+    <title>Orion - API</title>
+    <link rel="icon" type="image/x-icon" href="site.ico">
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <script>
-        function handleRequest() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const command = urlParams.get('command');
-
-            if (command === 'test') {
-                const response = {
-                    test: true
-                };
-                document.body.innerText = JSON.stringify(response);
-            } else {
-                const errorResponse = {
-                    error: 'Неизвестная команда'
-                };
-                document.body.innerText = JSON.stringify(errorResponse);
-            }
-        }
-
-        handleRequest();    
-    </script>
+<h1>Orion API</h1>
 </body>
 </html>
